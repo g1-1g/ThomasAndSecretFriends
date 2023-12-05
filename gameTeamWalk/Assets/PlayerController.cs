@@ -12,9 +12,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float _turnSpeed = 4.0f;
 
-    [SerializeField]
-    float JumpPower = 10;
-
     private Transform _transform;
     private bool _isJumping;
     private float _posY;        //오브젝트의 초기 높이
@@ -30,9 +27,6 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        Managers.Input.KeyAction -= Onkeyboard;
-        Managers.Input.KeyAction += Onkeyboard;
-
         characterController = GetComponent<CharacterController>();
 
         cameraR = Camera.main.transform;
@@ -53,6 +47,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (Input.anyKey)
+            Onkeyboard();
         MouseRotation();
 
         if (_isJumping)

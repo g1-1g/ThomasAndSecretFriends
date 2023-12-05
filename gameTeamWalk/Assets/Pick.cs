@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pick : MonoBehaviour
 {
-    int count = 0;
+    public int count = 0;
     void Start()
     {
         

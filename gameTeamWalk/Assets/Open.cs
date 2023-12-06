@@ -8,8 +8,11 @@ using UnityEngine;
 public class Open : MonoBehaviour
 {
     
+
+    public int KeyClear = 3;
     [SerializeField]
-    private int KeyClear = 3;
+    private GameObject KeyClearUI;
+
     [SerializeField]
     AudioClip doorS;
     AudioSource doorSSource;
@@ -25,6 +28,7 @@ public class Open : MonoBehaviour
         pick = FindObjectOfType<Pick>();
         MainC = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         doorSSource = gameObject.GetComponent<AudioSource>();
+        KeyClearUI = GameObject.Find("KeyCount");
 
     }
 
@@ -51,6 +55,7 @@ public class Open : MonoBehaviour
     IEnumerator WaitForIt()
     {
         MainC.enabled = false;
+        KeyClearUI.SetActive(false);
         yield return new WaitForSeconds(1.0f);
         isOpen = true;
     }

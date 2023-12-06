@@ -93,8 +93,7 @@ public class PlayerController : MonoBehaviour
             transform.position += transform.TransformDirection(Vector3.right * Time.deltaTime * Mspeed);
         }
 
-        //light On/Off
-        if (Input.GetKey(KeyCode.LeftShift))
+        if (Input.GetKey(KeyCode.LeftShift) && !Input.GetKeyDown(KeyCode.Space))
         {
             Mspeed = _speed * 2;
         }
